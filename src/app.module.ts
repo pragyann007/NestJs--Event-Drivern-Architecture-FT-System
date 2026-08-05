@@ -11,6 +11,8 @@ import { BullModule } from '@nestjs/bullmq';
 import { BullBoardModule } from '@bull-board/nestjs';
 import { ExpressAdapter } from '@bull-board/express';
 import { QueueModules } from './queues/queue.module';
+import { PaymentModule } from './payments/payment.module';
+import { RedisModule } from './common/redis/redis.module';
 @Module({
   imports: [
     EventEmitterModule.forRoot({
@@ -32,6 +34,7 @@ import { QueueModules } from './queues/queue.module';
 
       }
     ),
+    RedisModule,
     BullBoardModule.forRoot({
       route:"/queues",
       adapter:ExpressAdapter
@@ -41,7 +44,8 @@ import { QueueModules } from './queues/queue.module';
     OrderModule,
     InventoryModule,
     NotifcationModule,
-    AuditModule
+    AuditModule,
+    PaymentModule
   ],
   controllers: [AppController],
   providers: [AppService],

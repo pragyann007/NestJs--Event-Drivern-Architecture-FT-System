@@ -29,6 +29,7 @@ export class OrderService{
     @InjectQueue(QUEUE_NAME.INEVNTORY_EVENTS) private readonly inventoryQueue:Queue,
     @InjectQueue(QUEUE_NAME.NOTIFICATION_QUEUE) private readonly notificationQueue:Queue,
     @InjectQueue(QUEUE_NAME.AUDIT_QUEUE) private readonly auditQueue:Queue,
+    @InjectQueue(QUEUE_NAME.PAYMENT_QUEUE) private readonly paymentQueue:Queue,
 
 
     private readonly EventEmitter:EventEmitter2,
@@ -62,6 +63,7 @@ async createOrders(dto:CreateOrderDTO){
             this.inventoryQueue.add(ORDER_EVENTS.CREATED,new OrderCreatedEvent(orderItems.orderId,orderItems.userId,orderItems.items,orderItems.total),options),
             this.notificationQueue.add(ORDER_EVENTS.CREATED,new OrderCreatedEvent(orderItems.orderId,orderItems.userId,orderItems.items,orderItems.total),options),
             this.auditQueue.add(ORDER_EVENTS.CREATED,new OrderCreatedEvent(orderItems.orderId,orderItems.userId,orderItems.items,orderItems.total),options),
+            this.paymentQueue.add(ORDER_EVENTS.CREATED,new OrderCreatedEvent(orderItems.orderId,orderItems.userId,orderItems.items,orderItems.total),options )
         ]
 
     )

@@ -19,6 +19,9 @@ import { BullMQAdapter } from "@bull-board/api/bullMQAdapter";
             {
                 name: QUEUE_NAME.AUDIT_QUEUE
             },
+            {
+                name: QUEUE_NAME.PAYMENT_QUEUE
+            },
 
         ),
         BullBoardModule.forFeature({
@@ -38,6 +41,11 @@ import { BullMQAdapter } from "@bull-board/api/bullMQAdapter";
         ),
         BullBoardModule.forFeature({
             name: QUEUE_NAME.AUDIT_QUEUE,
+            adapter: BullMQAdapter
+        }
+        ),
+        BullBoardModule.forFeature({
+            name: QUEUE_NAME.PAYMENT_QUEUE,
             adapter: BullMQAdapter
         }
         ),

@@ -16,6 +16,11 @@ export class OrderItemDTO {
     @IsPositive()
     price:number
 
+    
+
+
+
+
 
     
 }

@@ -13,6 +13,7 @@ import { ExpressAdapter } from '@bull-board/express';
 import { QueueModules } from './queues/queue.module';
 import { PaymentModule } from './payments/payment.module';
 import { RedisModule } from './common/redis/redis.module';
+import { UsersModule } from './users/users.module';
 @Module({
   imports: [
     EventEmitterModule.forRoot({
@@ -45,7 +46,8 @@ import { RedisModule } from './common/redis/redis.module';
     InventoryModule,
     NotifcationModule,
     AuditModule,
-    PaymentModule
+    PaymentModule,
+    UsersModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,20 +1,18 @@
-import {IsEmail, IsNumber, IsPositive, IsString, isString, MIN, MinLength} from "class-validator"
+import { IsEmail, IsNumber, IsPositive, IsString, MinLength } from "class-validator";
 
-export class UserDTO{
-
+export class UserDTO {
     @IsString()
     @MinLength(6)
-    name:string
+    name: string;
 
     @IsEmail()
     @MinLength(2)
-    email:string
+    email: string;
 
     @IsString()
-    password:string
+    password: string;
 
     @IsNumber()
     @IsPositive()
-    age:string
-
+    age: number; // Remember to change string to number here to match @IsNumber()
 }

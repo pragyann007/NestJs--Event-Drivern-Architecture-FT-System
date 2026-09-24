@@ -16,4 +16,7 @@ export class PostService {
 
 
     }
+    getPostName(){
+        return "I just got macbook at age of mid 18"
+    }
 }

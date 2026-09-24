@@ -14,6 +14,7 @@ import { QueueModules } from './queues/queue.module';
 import { PaymentModule } from './payments/payment.module';
 import { RedisModule } from './common/redis/redis.module';
 import { UsersModule } from './users/users.module';
+import { PostsModule } from './posts/posts.module';
 @Module({
   imports: [
     EventEmitterModule.forRoot({
@@ -47,7 +48,8 @@ import { UsersModule } from './users/users.module';
     NotifcationModule,
     AuditModule,
     PaymentModule,
-    UsersModule
+    UsersModule,
+    PostsModule
   ],
   controllers: [AppController],
   providers: [AppService],

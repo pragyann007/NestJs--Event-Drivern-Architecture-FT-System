@@ -1,9 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { UsersService } from 'src/users/users.service';
 
 @Injectable()
 export class PostService {
-    constructor(private readonly userService:UsersService
+    constructor(
+        @Inject(forwardRef(()=>UsersService))
+        private readonly userService:UsersService
     ){}
     
     getAllPosts(){

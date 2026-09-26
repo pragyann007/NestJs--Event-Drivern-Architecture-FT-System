@@ -15,6 +15,7 @@ import { PaymentModule } from './payments/payment.module';
 import { RedisModule } from './common/redis/redis.module';
 import { UsersModule } from './users/users.module';
 import { PostsModule } from './posts/posts.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 @Module({
   imports: [
     EventEmitterModule.forRoot({
@@ -49,9 +50,25 @@ import { PostsModule } from './posts/posts.module';
     AuditModule,
     PaymentModule,
     UsersModule,
-    PostsModule
+    PostsModule,
+    TypeOrmModule.forRootAsync({
+      useFactory:()=>({
+        type:"postgres",
+        entities:[],
+        synchronize:true,
+        port:5432,
+        username:"postgres",
+        password:"password",
+        database:"mydb",
+        host:"localhost"
+      
+      })
+    }
+    )
   ],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
+
+//  // "doc": "npx @compodoc/compodoc -p tsconfig.json -s --port 3001 --watch -d ./documentation"

@@ -1,5 +1,10 @@
 import { Injectable ,Inject,forwardRef} from '@nestjs/common';
+import { DuplicateDataSourceException, InjectRepository } from '@nestjs/typeorm';
 import { PostService } from 'src/posts/providers/post.service';
+import { User } from './user.entity';
+import { Repository } from 'typeorm';
+import { UserDTO } from './dtos/user.dto';
+import { create } from 'domain';
 
 @Injectable()
 /**
@@ -10,8 +15,27 @@ export class UsersService {
      * This is the constructor that handles circular dependcy and injetc the postService */
     constructor(
         @Inject(forwardRef(()=>PostService))
-        private readonly postService:PostService
+        private readonly postService:PostService,
+
+        @InjectRepository(User)
+        private UserRepiository:Repository<User>
     ){}
+
+    async createUser(createUserDTO:UserDTO){
+        const userExists = await this.UserRepiository.findOne({
+            where:{
+                email:createUserDTO.email
+            }
+        })
+        if(userExists){
+            throw new DuplicateDataSourceException("User already exists..")
+        }
+        let  user =  this.UserRepiository.create(createUserDTO);
+        user  = await this.UserRepiository.save(user)
+
+        return {status:"OK",statusCode:201,data:user}
+    }
+
     /**This method gets a user by its Id and returns only 1 user. */
     getOneUser(userId:string){
         return {id:userId,name:"Pragyan"}

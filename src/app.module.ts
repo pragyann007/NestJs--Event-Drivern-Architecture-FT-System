@@ -16,6 +16,7 @@ import { RedisModule } from './common/redis/redis.module';
 import { UsersModule } from './users/users.module';
 import { PostsModule } from './posts/posts.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './users/user.entity';
 @Module({
   imports: [
     EventEmitterModule.forRoot({
@@ -54,7 +55,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     TypeOrmModule.forRootAsync({
       useFactory:()=>({
         type:"postgres",
-        entities:[],
+        entities:[User],
         synchronize:true,
         port:5432,
         username:"postgres",

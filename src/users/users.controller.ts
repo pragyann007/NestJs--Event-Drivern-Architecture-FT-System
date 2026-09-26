@@ -11,7 +11,7 @@ export class UserController {
     @Post()
     createUser(@Body() userDetails: UserDTO) {
         console.log(userDetails);
-        return `Hi ${userDetails.name} of ${userDetails.age}`;
+        return this.userservice.createUser(userDetails)
     }
 
     @ApiProperty({

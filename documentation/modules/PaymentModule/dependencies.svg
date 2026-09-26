@@ -24,13 +24,13 @@
 <title>cluster_PaymentModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="24.5,-70 24.5,-268 471.5,-268 471.5,-70 24.5,-70"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_PaymentModule_providers</title>
-<polygon fill="none" stroke="black" points="32.5,-78 32.5,-130 463.5,-130 463.5,-78 32.5,-78"/>
-</g>
 <g id="clust4" class="cluster">
 <title>cluster_PaymentModule_exports</title>
 <polygon fill="none" stroke="black" points="168.5,-208 168.5,-260 344.5,-260 344.5,-208 168.5,-208"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_PaymentModule_providers</title>
+<polygon fill="none" stroke="black" points="32.5,-78 32.5,-130 463.5,-130 463.5,-78 32.5,-78"/>
 </g>
 <!-- PaymentGatewayService  -->
 <g id="node1" class="node">

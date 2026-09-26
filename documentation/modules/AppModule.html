@@ -1,0 +1,598 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>nestjs-event-driven-architecture documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">nestjs-event-driven-architecture documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+    <button type="button"
+        class="search-input-clear"
+        aria-label="Clear search"
+        data-search-input-clear>&times;</button>
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content module">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Modules</li>
+    <li class="breadcrumb-item" >AppModule</li>
+</ol>
+
+<div class="io-file io-file-path" data-compodoc="entity-file-path">
+    <span class="icon ion-ios-document" aria-hidden="true"></span>
+    <code>src/app.module.ts</code>
+</div>
+
+<div class="text-center module-graph-container">
+    <div id="module-graph-svg">
+        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.47.0 (20210316.0004)
+ -->
+<!-- Title: dependencies Pages: 1 -->
+<svg width="1241pt" height="211pt"
+ viewBox="0.00 0.00 1241.00 211.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 207)">
+<title>dependencies</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-207 1237,-207 1237,4 -4,4"/>
+<text text-anchor="start" x="595.51" y="-42.4" font-family="Times-12" font-weight="bold" font-size="14.00">Legend</text>
+<polygon fill="#ffffb3" stroke="transparent" points="382.5,-10 382.5,-30 402.5,-30 402.5,-10 382.5,-10"/>
+<text text-anchor="start" x="406.13" y="-15.4" font-family="Times-12" font-size="14.00"> &#160;Declarations</text>
+<polygon fill="#8dd3c7" stroke="transparent" points="495.5,-10 495.5,-30 515.5,-30 515.5,-10 495.5,-10"/>
+<text text-anchor="start" x="519.23" y="-15.4" font-family="Times-12" font-size="14.00"> &#160;Module</text>
+<polygon fill="#80b1d3" stroke="transparent" points="581.5,-10 581.5,-30 601.5,-30 601.5,-10 581.5,-10"/>
+<text text-anchor="start" x="605.28" y="-15.4" font-family="Times-12" font-size="14.00"> &#160;Bootstrap</text>
+<polygon fill="#fdb462" stroke="transparent" points="678.5,-10 678.5,-30 698.5,-30 698.5,-10 678.5,-10"/>
+<text text-anchor="start" x="702.17" y="-15.4" font-family="Times-12" font-size="14.00"> &#160;Providers</text>
+<polygon fill="#fb8072" stroke="transparent" points="774.5,-10 774.5,-30 794.5,-30 794.5,-10 774.5,-10"/>
+<text text-anchor="start" x="798.23" y="-15.4" font-family="Times-12" font-size="14.00"> &#160;Exports</text>
+<g id="clust1" class="cluster">
+<title>cluster_AppModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-195 1225,-195 1225,-70 8,-70"/>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_AppModule_imports</title>
+<polygon fill="none" stroke="black" points="154,-78 154,-130 1217,-130 1217,-78 154,-78"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_AppModule_providers</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-130 146,-130 146,-78 16,-78"/>
+</g>
+<!-- AuditModule -->
+<g id="node1" class="node"><a xlink:href="../modules/AuditModule.html" href="../modules/AuditModule.html" target="_top">
+<title>AuditModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="1208.94,-122 1205.94,-126 1184.94,-126 1181.94,-122 1117.06,-122 1117.06,-86 1208.94,-86 1208.94,-122"/>
+<text text-anchor="middle" x="1163" y="-99.8" font-family="Times,serif" font-size="14.00">AuditModule</text>
+</a></g>
+<!-- AppModule -->
+<g id="node10" class="node"><a xlink:href="../modules/AppModule.html" href="../modules/AppModule.html" target="_top">
+<title>AppModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="643.66,-187 640.66,-191 619.66,-191 616.66,-187 560.34,-187 560.34,-151 643.66,-151 643.66,-187"/>
+<text text-anchor="middle" x="602" y="-164.8" font-family="Times,serif" font-size="14.00">AppModule</text>
+</a></g>
+<!-- AuditModule&#45;&gt;AppModule -->
+<g id="edge1" class="edge">
+<title>AuditModule&#45;&gt;AppModule</title>
+<path fill="none" stroke="black" d="M1163,-122.01C1163,-144.49 1163,-180 1163,-180 1163,-180 653.71,-180 653.71,-180"/>
+<polygon fill="black" stroke="black" points="653.71,-176.5 643.71,-180 653.71,-183.5 653.71,-176.5"/>
+</g>
+<!-- InventoryModule -->
+<g id="node2" class="node"><a xlink:href="../modules/InventoryModule.html" href="../modules/InventoryModule.html" target="_top">
+<title>InventoryModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="1098.98,-122 1095.98,-126 1074.98,-126 1071.98,-122 985.02,-122 985.02,-86 1098.98,-86 1098.98,-122"/>
+<text text-anchor="middle" x="1042" y="-99.8" font-family="Times,serif" font-size="14.00">InventoryModule</text>
+</a></g>
+<!-- InventoryModule&#45;&gt;AppModule -->
+<g id="edge2" class="edge">
+<title>InventoryModule&#45;&gt;AppModule</title>
+<path fill="none" stroke="black" d="M1042,-122.13C1042,-142.57 1042,-173 1042,-173 1042,-173 653.79,-173 653.79,-173"/>
+<polygon fill="black" stroke="black" points="653.79,-169.5 643.79,-173 653.79,-176.5 653.79,-169.5"/>
+</g>
+<!-- NotifcationModule -->
+<g id="node3" class="node"><a xlink:href="../modules/NotifcationModule.html" href="../modules/NotifcationModule.html" target="_top">
+<title>NotifcationModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="966.81,-122 963.81,-126 942.81,-126 939.81,-122 843.19,-122 843.19,-86 966.81,-86 966.81,-122"/>
+<text text-anchor="middle" x="905" y="-99.8" font-family="Times,serif" font-size="14.00">NotifcationModule</text>
+</a></g>
+<!-- NotifcationModule&#45;&gt;AppModule -->
+<g id="edge3" class="edge">
+<title>NotifcationModule&#45;&gt;AppModule</title>
+<path fill="none" stroke="black" d="M905,-122.27C905,-140.56 905,-166 905,-166 905,-166 653.81,-166 653.81,-166"/>
+<polygon fill="black" stroke="black" points="653.81,-162.5 643.81,-166 653.81,-169.5 653.81,-162.5"/>
+</g>
+<!-- OrderModule -->
+<g id="node4" class="node"><a xlink:href="../modules/OrderModule.html" href="../modules/OrderModule.html" target="_top">
+<title>OrderModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="825.19,-122 822.19,-126 801.19,-126 798.19,-122 732.81,-122 732.81,-86 825.19,-86 825.19,-122"/>
+<text text-anchor="middle" x="779" y="-99.8" font-family="Times,serif" font-size="14.00">OrderModule</text>
+</a></g>
+<!-- OrderModule&#45;&gt;AppModule -->
+<g id="edge4" class="edge">
+<title>OrderModule&#45;&gt;AppModule</title>
+<path fill="none" stroke="black" d="M779,-122.01C779,-138.05 779,-159 779,-159 779,-159 653.95,-159 653.95,-159"/>
+<polygon fill="black" stroke="black" points="653.95,-155.5 643.95,-159 653.95,-162.5 653.95,-155.5"/>
+</g>
+<!-- PaymentModule -->
+<g id="node5" class="node"><a xlink:href="../modules/PaymentModule.html" href="../modules/PaymentModule.html" target="_top">
+<title>PaymentModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="715.04,-122 712.04,-126 691.04,-126 688.04,-122 606.96,-122 606.96,-86 715.04,-86 715.04,-122"/>
+<text text-anchor="middle" x="661" y="-99.8" font-family="Times,serif" font-size="14.00">PaymentModule</text>
+</a></g>
+<!-- PaymentModule&#45;&gt;AppModule -->
+<g id="edge5" class="edge">
+<title>PaymentModule&#45;&gt;AppModule</title>
+<path fill="none" stroke="black" d="M625.28,-122.11C625.28,-122.11 625.28,-140.99 625.28,-140.99"/>
+<polygon fill="black" stroke="black" points="621.78,-140.99 625.28,-150.99 628.78,-140.99 621.78,-140.99"/>
+</g>
+<!-- PostsModule -->
+<g id="node6" class="node"><a xlink:href="../modules/PostsModule.html" href="../modules/PostsModule.html" target="_top">
+<title>PostsModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="588.61,-122 585.61,-126 564.61,-126 561.61,-122 499.39,-122 499.39,-86 588.61,-86 588.61,-122"/>
+<text text-anchor="middle" x="544" y="-99.8" font-family="Times,serif" font-size="14.00">PostsModule</text>
+</a></g>
+<!-- PostsModule&#45;&gt;AppModule -->
+<g id="edge6" class="edge">
+<title>PostsModule&#45;&gt;AppModule</title>
+<path fill="none" stroke="black" d="M574.36,-122.11C574.36,-122.11 574.36,-140.99 574.36,-140.99"/>
+<polygon fill="black" stroke="black" points="570.86,-140.99 574.36,-150.99 577.86,-140.99 570.86,-140.99"/>
+</g>
+<!-- QueueModules -->
+<g id="node7" class="node"><a xlink:href="../modules/QueueModules.html" href="../modules/QueueModules.html" target="_top">
+<title>QueueModules</title>
+<polygon fill="#8dd3c7" stroke="black" points="481.53,-122 478.53,-126 457.53,-126 454.53,-122 380.47,-122 380.47,-86 481.53,-86 481.53,-122"/>
+<text text-anchor="middle" x="431" y="-99.8" font-family="Times,serif" font-size="14.00">QueueModules</text>
+</a></g>
+<!-- QueueModules&#45;&gt;AppModule -->
+<g id="edge7" class="edge">
+<title>QueueModules&#45;&gt;AppModule</title>
+<path fill="none" stroke="black" d="M431,-122.01C431,-138.05 431,-159 431,-159 431,-159 550.17,-159 550.17,-159"/>
+<polygon fill="black" stroke="black" points="550.17,-162.5 560.17,-159 550.17,-155.5 550.17,-162.5"/>
+</g>
+<!-- RedisModule -->
+<g id="node8" class="node"><a xlink:href="../modules/RedisModule.html" href="../modules/RedisModule.html" target="_top">
+<title>RedisModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="362.94,-122 359.94,-126 338.94,-126 335.94,-122 271.06,-122 271.06,-86 362.94,-86 362.94,-122"/>
+<text text-anchor="middle" x="317" y="-99.8" font-family="Times,serif" font-size="14.00">RedisModule</text>
+</a></g>
+<!-- RedisModule&#45;&gt;AppModule -->
+<g id="edge8" class="edge">
+<title>RedisModule&#45;&gt;AppModule</title>
+<path fill="none" stroke="black" d="M317,-122.27C317,-140.56 317,-166 317,-166 317,-166 550.25,-166 550.25,-166"/>
+<polygon fill="black" stroke="black" points="550.25,-169.5 560.25,-166 550.25,-162.5 550.25,-169.5"/>
+</g>
+<!-- UsersModule -->
+<g id="node9" class="node"><a xlink:href="../modules/UsersModule.html" href="../modules/UsersModule.html" target="_top">
+<title>UsersModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="253.92,-122 250.92,-126 229.92,-126 226.92,-122 162.08,-122 162.08,-86 253.92,-86 253.92,-122"/>
+<text text-anchor="middle" x="208" y="-99.8" font-family="Times,serif" font-size="14.00">UsersModule</text>
+</a></g>
+<!-- UsersModule&#45;&gt;AppModule -->
+<g id="edge9" class="edge">
+<title>UsersModule&#45;&gt;AppModule</title>
+<path fill="none" stroke="black" d="M208,-122.13C208,-142.57 208,-173 208,-173 208,-173 550.21,-173 550.21,-173"/>
+<polygon fill="black" stroke="black" points="550.21,-176.5 560.21,-173 550.21,-169.5 550.21,-176.5"/>
+</g>
+<!-- AppService -->
+<g id="node11" class="node"><a xlink:href="../injectables/AppService.html" href="../injectables/AppService.html" target="_top">
+<title>AppService</title>
+<ellipse fill="#fdb462" stroke="black" cx="81" cy="-104" rx="56.74" ry="18"/>
+<text text-anchor="middle" x="81" y="-99.8" font-family="Times,serif" font-size="14.00">AppService</text>
+</a></g>
+<!-- AppService&#45;&gt;AppModule -->
+<g id="edge10" class="edge">
+<title>AppService&#45;&gt;AppModule</title>
+<path fill="none" stroke="black" d="M81,-122.01C81,-144.49 81,-180 81,-180 81,-180 550.25,-180 550.25,-180"/>
+<polygon fill="black" stroke="black" points="550.25,-183.5 560.25,-180 550.25,-176.5 550.25,-183.5"/>
+</g>
+</g>
+</svg>
+
+    </div>
+    <i id="fullscreen" class="icon ion-ios-resize module-graph-fullscreen-btn" aria-hidden="true"></i>
+    <div class="btn-group size-buttons">
+        <button id="zoom-in" class="btn btn-default btn-sm">Zoom in</button>
+        <button id="reset" class="btn btn-default btn-sm">Reset</button>
+        <button id="zoom-out" class="btn btn-default btn-sm">Zoom out</button>
+    </div>
+</div>
+<script src="../js/libs/svg-pan-zoom.min.js"></script>
+<script src="../js/svg-pan-zoom.controls.js"></script>
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+        <a href="#info" 
+            class="nav-link"
+            class="nav-link active"
+            role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+    </li>
+    <li class="nav-item">
+        <a href="#source" 
+            class="nav-link"
+            
+            role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+
+
+
+
+
+        <div class="container-fluid module">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h3>Providers<a href="https://angular.io/api/core/NgModule#providers" target="_blank" rel="noopener noreferrer"
+                            title="Official documentation about module providers"><span class="icon ion-ios-information-circle-outline"></a></h3>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="../injectables/AppService.html">AppService</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h3>Controllers<a href="https://docs.nestjs.com/controllers" target="_blank" rel="noopener noreferrer"
+                            title="Official documentation about module controllers"><span
+                                class="icon ion-ios-information-circle-outline"></a></h3>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="../controllers/AppController.html">AppController</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h3>Imports<a href="https://angular.io/api/core/NgModule#imports" target="_blank" rel="noopener noreferrer"
+                            title="Official documentation about module imports"><span
+                                class="icon ion-ios-information-circle-outline"></a></h3>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="../modules/AuditModule.html">AuditModule</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="../modules/InventoryModule.html">InventoryModule</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="../modules/NotifcationModule.html">NotifcationModule</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="../modules/OrderModule.html">OrderModule</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="../modules/PaymentModule.html">PaymentModule</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="../modules/PostsModule.html">PostsModule</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="../modules/QueueModules.html">QueueModules</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="../modules/RedisModule.html">RedisModule</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="../modules/UsersModule.html">UsersModule</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+                <section data-compodoc="block-relationships">
+            <h3>Relationships</h3>
+
+            <div class="row pt-3">
+                <div class="col-sm-6">
+                    <h4>Used by</h4>
+                        <p class="comment"><i>No results matching.</i></p>
+                </div>
+
+                <div class="col-sm-6">
+                    <h4>Depends on</h4>
+                        <ul class="list-unstyled relationships-list">
+                                <li>
+                                            <code><a href="../modules/AuditModule.html" target="_self" >AuditModule</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../modules/InventoryModule.html" target="_self" >InventoryModule</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../modules/NotifcationModule.html" target="_self" >NotifcationModule</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../modules/OrderModule.html" target="_self" >OrderModule</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../modules/PaymentModule.html" target="_self" >PaymentModule</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../modules/PostsModule.html" target="_self" >PostsModule</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../modules/QueueModules.html" target="_self" >QueueModules</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../modules/RedisModule.html" target="_self" >RedisModule</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../modules/UsersModule.html" target="_self" >UsersModule</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../controllers/AppController.html" target="_self" >AppController</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../injectables/AppService.html" target="_self" >AppService</a></code>
+                                </li>
+                        </ul>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Module } from &#x27;@nestjs/common&#x27;;
+import { AppController } from &#x27;./app.controller&#x27;;
+import { AppService } from &#x27;./app.service&#x27;;
+import { EventEmitterModule } from &quot;@nestjs/event-emitter&quot;
+import { ConfigModule, ConfigService } from &quot;@nestjs/config&quot;
+import { OrderModule } from &#x27;./orders/order.module&#x27;;
+import { InventoryModule } from &#x27;./inventory/inventory.module&#x27;;
+import { NotifcationModule } from &#x27;./notifications/notification.module&#x27;;
+import { AuditModule } from &#x27;./audit/audit.module&#x27;;
+import { BullModule } from &#x27;@nestjs/bullmq&#x27;;
+import { BullBoardModule } from &#x27;@bull-board/nestjs&#x27;;
+import { ExpressAdapter } from &#x27;@bull-board/express&#x27;;
+import { QueueModules } from &#x27;./queues/queue.module&#x27;;
+import { PaymentModule } from &#x27;./payments/payment.module&#x27;;
+import { RedisModule } from &#x27;./common/redis/redis.module&#x27;;
+import { UsersModule } from &#x27;./users/users.module&#x27;;
+import { PostsModule } from &#x27;./posts/posts.module&#x27;;
+@Module({
+  imports: [
+    EventEmitterModule.forRoot({
+      wildcard:true,
+      delimiter:&quot;.&quot;
+    }),
+    ConfigModule.forRoot(),
+    BullModule.forRootAsync(
+      {
+        useFactory:async()&#x3D;&gt;{
+        return {
+          connection:{
+            host:&quot;localhost&quot;,
+            port:6379
+          }
+        }
+        }
+ 
+
+      }
+    ),
+    RedisModule,
+    BullBoardModule.forRoot({
+      route:&quot;/queues&quot;,
+      adapter:ExpressAdapter
+    }),
+    QueueModules,
+  
+    OrderModule,
+    InventoryModule,
+    NotifcationModule,
+    AuditModule,
+    PaymentModule,
+    UsersModule,
+    PostsModule
+  ],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
+            var COMPODOC_CURRENT_PAGE_URL = 'AppModule.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var updateDarkModeSwitchOffset = function () {
+                    var content = document.querySelector('.content');
+                    var scrollbarWidth = 0;
+
+                    if (content) {
+                         scrollbarWidth = Math.max(0, content.offsetWidth - content.clientWidth);
+                    }
+
+                    document.documentElement.style.setProperty(
+                         '--content-scrollbar-width',
+                         scrollbarWidth + 'px'
+                    );
+               };
+
+               updateDarkModeSwitchOffset();
+               requestAnimationFrame(updateDarkModeSwitchOffset);
+               window.addEventListener('resize', updateDarkModeSwitchOffset);
+
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,5 +1,5 @@
 import { Column, PrimaryGeneratedColumn } from "typeorm";
-import { MetaOptionsDTO } from "./dto/metaOptions.dto";
+import { MetaOptionsDTO } from "../meta-options/dto/metaOptions.dto";
 import { Status } from "./types/PostStatus.enum";
 import { PostType } from "./types/PostType.enum";
 

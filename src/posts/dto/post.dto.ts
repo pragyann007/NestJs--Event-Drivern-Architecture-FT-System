@@ -1,5 +1,5 @@
 import { ArrayNotEmpty, IsArray, IsEnum, IsOptional, IsString, IsISO8601, ValidateNested } from "class-validator"
-import { MetaOptionsDTO } from "./metaOptions.dto"
+import { MetaOptionsDTO } from "../../meta-options/dto/metaOptions.dto"
 import { Type } from "class-transformer"
 import { PostType } from "../types/PostType.enum"
 import { Status } from "../types/PostStatus.enum"

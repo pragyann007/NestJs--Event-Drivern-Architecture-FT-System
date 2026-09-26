@@ -21,6 +21,7 @@ export class UsersService {
         private UserRepiository:Repository<User>
     ){}
 
+    /**This method will take the users details in request and creates db entires. */
     async createUser(createUserDTO:UserDTO){
         const userExists = await this.UserRepiository.findOne({
             where:{

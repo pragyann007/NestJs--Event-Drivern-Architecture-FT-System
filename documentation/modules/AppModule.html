@@ -447,6 +447,7 @@ import { PaymentModule } from &#x27;./payments/payment.module&#x27;;
 import { RedisModule } from &#x27;./common/redis/redis.module&#x27;;
 import { UsersModule } from &#x27;./users/users.module&#x27;;
 import { PostsModule } from &#x27;./posts/posts.module&#x27;;
+import { TypeOrmModule } from &#x27;@nestjs/typeorm&#x27;;
 @Module({
   imports: [
     EventEmitterModule.forRoot({
@@ -481,13 +482,28 @@ import { PostsModule } from &#x27;./posts/posts.module&#x27;;
     AuditModule,
     PaymentModule,
     UsersModule,
-    PostsModule
+    PostsModule,
+    TypeOrmModule.forRootAsync({
+      useFactory:()&#x3D;&gt;({
+        type:&quot;postgres&quot;,
+        entities:[],
+        synchronize:true,
+        port:5432,
+        username:&quot;postgres&quot;,
+        password:&quot;password&quot;,
+        database:&quot;mydb&quot;,
+        host:&quot;localhost&quot;
+      
+      })
+    }
+    )
   ],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
-</code></pre>
+
+//  //</code></pre>
     </div>
 </div>
 

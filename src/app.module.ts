@@ -71,4 +71,4 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 })
 export class AppModule {}
 
-//  // "doc": "npx @compodoc/compodoc -p tsconfig.json -s --port 3001 --watch -d ./documentation"
+//  //

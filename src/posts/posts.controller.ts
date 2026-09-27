@@ -20,6 +20,10 @@ export class PostsController {
     getAllPosts(){
         return this.postService.getAllPosts();
     }
+    @Get("/:id")
+    getOnePosts(@Param("id") id:string){
+        return this.postService.getOnePost(id);
+    }
 
     @Delete("/:id")
     deletePost(@Param("id") id:string){

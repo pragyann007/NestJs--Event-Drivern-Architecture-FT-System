@@ -45,6 +45,21 @@ export class PostService {
         return posts;
 
     }
+
+    async getOnePost(id:string){
+        const posts = await this.postRepiository.findOneBy({id}) ;
+        const findPostByMetaOption = await this.metaOptionRepisitory.find({
+            where:{
+                id:posts?.metaOptions?.id
+                
+            },
+            relations:{
+                post:true
+            }
+        })
+
+        return {findPostFromMetaOption:findPostByMetaOption,findPostFromPostsId:posts}
+       }
     getPostofUser(userId:string){
         const user = this.userService.getOneUser(userId);
         return user ; 

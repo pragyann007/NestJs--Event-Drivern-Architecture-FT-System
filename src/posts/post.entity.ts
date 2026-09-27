@@ -1,8 +1,10 @@
-import { Column, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { MetaOptionsDTO } from "../meta-options/dto/metaOptions.dto";
 import { Status } from "./types/PostStatus.enum";
 import { PostType } from "./types/PostType.enum";
+import { MetaOption } from "src/meta-options/meta-option.entity";
 
+@Entity()
 export class Post {
     @PrimaryGeneratedColumn()
     id:string;
@@ -26,7 +28,7 @@ export class Post {
     slug:string;
 
     @Column({
-        type:"varchar",
+        type:"enum",
         enum:Status,
         nullable:false,
     })
@@ -52,14 +54,14 @@ export class Post {
     })
     publishOn:Date;
     @Column({
-        type:"array",
+        type:"varchar",
+        array:true,
         nullable:false,
     })
     tags:string[];
-    @Column({
-        type:"array",
-        nullable:false,
-    })
-    metaOptions:MetaOptionsDTO;
+   
+    @OneToOne(()=>MetaOption,{cascade:true})
+    @JoinColumn()
+    metaOptions?:MetaOption|null;
 
 }

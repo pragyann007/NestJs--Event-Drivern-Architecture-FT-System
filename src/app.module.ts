@@ -60,7 +60,8 @@ import { MetaOption } from './meta-options/meta-option.entity';
     TypeOrmModule.forRootAsync({
       useFactory:()=>({
         type:"postgres",
-        entities:[User,Post,Tag,MetaOption],
+        // entities:[User,Post,Tag,MetaOption],
+        autoLoadEntities:true,
         synchronize:true,
         port:5432,
         username:"postgres",

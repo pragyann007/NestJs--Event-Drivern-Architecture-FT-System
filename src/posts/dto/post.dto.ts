@@ -41,8 +41,7 @@ export class POSTDTO {
     @ArrayNotEmpty()
     tags: string[]
 
-    @IsArray()
     @ValidateNested({ each: true })
     @Type(() => MetaOptionsDTO)
-    metaOptions: MetaOptionsDTO[]; 
+    metaOptions: MetaOptionsDTO|null; 
 }

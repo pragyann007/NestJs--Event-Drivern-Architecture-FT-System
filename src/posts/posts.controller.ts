@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { POSTDTO } from './dto/post.dto';
 import { PostService } from './providers/post.service';
@@ -14,5 +14,15 @@ export class PostsController {
     @Post()
     createPosts(@Body() postData: POSTDTO) {
         return this.postService.createPosts(postData);
+    }
+
+    @Get()
+    getAllPosts(){
+        return this.postService.getAllPosts();
+    }
+
+    @Delete("/:id")
+    deletePost(@Param("id") id:string){
+        return this.postService.deletePost(id)
     }
 }

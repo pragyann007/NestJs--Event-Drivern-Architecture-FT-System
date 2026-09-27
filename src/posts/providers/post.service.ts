@@ -36,8 +36,13 @@ export class PostService {
 
 
     }
-    getAllPosts(){
-        return "ALl post getted "
+    async getAllPosts(){
+        /** we can get nested mtaoptions by adding relations->metaOptions->true */
+        const posts = await this.postRepiository.find(
+            // {relations:{metaOptions:true}}
+            )
+            ;
+        return posts;
 
     }
     getPostofUser(userId:string){
@@ -48,6 +53,18 @@ export class PostService {
     }
     getPostName(){
         return "I just got macbook at age of mid 18"
+    }
+
+    async deletePost(id:string){
+        const post = await this.postRepiository.findOneBy({id});
+
+        await this.postRepiository.delete(id);
+        if(!post?.metaOptions?.id){
+            return "No id exists"
+        }
+
+        await this.metaOptionRepisitory.delete(post?.metaOptions?.id);
+        return {status:"OK",deleted:true,statusCode:200,postId:id,metaOptionsId:post.metaOptions.id}
     }
 
 }

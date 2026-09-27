@@ -60,7 +60,11 @@ export class Post {
     })
     tags:string[];
    
-    @OneToOne(()=>MetaOption,{cascade:true})
+    @OneToOne(()=>MetaOption,{
+        cascade:true,
+        eager:true
+        /**Addinge ager true will do same stuff as done by relation etc etc stuff  */
+    })
     @JoinColumn()
     metaOptions?:MetaOption|null;
 

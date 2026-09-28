@@ -15,6 +15,8 @@ export class PostsController {
     createPosts(@Body() postData: POSTDTO) {
         return this.postService.createPosts(postData);
     }
+    // many post ---> single user ....
+
 
     @Get()
     getAllPosts(){
@@ -22,7 +24,7 @@ export class PostsController {
     }
     @Get("/:id")
     getOnePosts(@Param("id") id:string){
-        return this.postService.getOnePost(id);
+        return this.postService.getPostofUser(id);
     }
 
     @Delete("/:id")

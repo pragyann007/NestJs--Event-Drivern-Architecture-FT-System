@@ -32,11 +32,16 @@ export class UserController {
     })
     @Get("/:id")
     getOneUser(@Param("id",new DefaultValuePipe("abcpragyan")) id:string){
-        return this.userservice.getOneUser(id)
+        return this.userservice.getOneUserById(id)
     }
     @Patch()
     updateUser(@Body() userData: Partial<UserDTO>) {
         console.log(userData);
         return `Hiiii ${userData.name}`;
+    }
+
+    @Get()
+    async getALlUsers (){
+        return this.userservice.getALlUsers() ; 
     }
 }

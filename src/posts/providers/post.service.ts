@@ -20,8 +20,17 @@ export class PostService {
     ){}
     
     async createPosts(createPostDTO:POSTDTO){
+        const {id,...postData} = createPostDTO;
+
+        let user = await this.userService.getOneUserById(id);
+
+        if(!user) return ; 
+
                
-        let post = this.postRepiository.create(createPostDTO);
+        let post = this.postRepiository.create({
+            ...postData,
+            author:user
+        });
          post = await this.postRepiository.save(post);
         
         
@@ -40,6 +49,7 @@ export class PostService {
         /** we can get nested mtaoptions by adding relations->metaOptions->true */
         const posts = await this.postRepiository.find(
             // {relations:{metaOptions:true}}
+            {relations:{author:true}}
             )
             ;
         return posts;
@@ -48,21 +58,22 @@ export class PostService {
 
     async getOnePost(id:string){
         const posts = await this.postRepiository.findOneBy({id}) ;
-        const findPostByMetaOption = await this.metaOptionRepisitory.find({
-            where:{
-                id:posts?.metaOptions?.id
-                
-            },
-            relations:{
-                post:true
+        
+
+        return {findPostFromPostsId:posts}
+       }
+    async getPostofUser(userId:string){
+        // const user = await this.userService.getOneUserById(userId);
+        // return user ; 
+        // if(!user) return;
+        
+        const posts = await this.postRepiository.findBy({
+            author:{
+                id:userId
             }
         })
 
-        return {findPostFromMetaOption:findPostByMetaOption,findPostFromPostsId:posts}
-       }
-    getPostofUser(userId:string){
-        const user = this.userService.getOneUser(userId);
-        return user ; 
+        return posts;
 
 
     }

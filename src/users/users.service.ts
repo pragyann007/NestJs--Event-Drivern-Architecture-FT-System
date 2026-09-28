@@ -38,8 +38,14 @@ export class UsersService {
     }
 
     /**This method gets a user by its Id and returns only 1 user. */
-    getOneUser(userId:string){
-        return {id:userId,name:"Pragyan"}
+    async getOneUserById(userId:string){
+        const user = await this.UserRepiository.findOneBy({id:userId});
+        return user ; 
+    
+    }
+
+    async getALlUsers(){
+        return await this.UserRepiository.find()
     }
     /**
      * This method returns the total post  count of user created by this user of userId

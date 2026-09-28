@@ -1,8 +1,9 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { MetaOptionsDTO } from "../meta-options/dto/metaOptions.dto";
 import { Status } from "./types/PostStatus.enum";
 import { PostType } from "./types/PostType.enum";
 import { MetaOption } from "src/meta-options/meta-option.entity";
+import { User } from "src/users/user.entity";
 
 @Entity()
 export class Post {
@@ -62,10 +63,14 @@ export class Post {
    
     @OneToOne(()=>MetaOption,(metaOptions)=>metaOptions.post,{
         cascade:true,
-        eager:true
         /**Addinge ager true will do same stuff as done by relation etc etc stuff  */
     })
     @JoinColumn()
     metaOptions?:MetaOption|null;
+
+
+    @ManyToOne(()=>User,(user)=>user.posts)
+    @JoinColumn()
+    author:User
 
 }

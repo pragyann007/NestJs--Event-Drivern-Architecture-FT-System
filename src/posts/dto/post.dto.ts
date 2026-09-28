@@ -44,4 +44,8 @@ export class POSTDTO {
     @ValidateNested({ each: true })
     @Type(() => MetaOptionsDTO)
     metaOptions: MetaOptionsDTO|null; 
+
+
+    @IsString()
+    id:string
 }

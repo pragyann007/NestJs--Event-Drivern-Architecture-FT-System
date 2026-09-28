@@ -1,12 +1,13 @@
 import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { UsersService } from 'src/users/users.service';
-import { Repository } from 'typeorm';
+import { In, Repository } from 'typeorm';
 import { Post } from '../post.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MetaOption } from 'src/meta-options/meta-option.entity';
 import { Meta } from '@angular/platform-browser';
 import { POSTDTO } from '../dto/post.dto';
 import { create } from 'domain';
+import { TagsService } from 'src/tags/tags.service';
 
 @Injectable()
 export class PostService {
@@ -16,20 +17,24 @@ export class PostService {
         @InjectRepository(Post)
         private readonly postRepiository:Repository<Post>,
         @InjectRepository(MetaOption)
-        private readonly metaOptionRepisitory:Repository<MetaOption>
+        private readonly metaOptionRepisitory:Repository<MetaOption>,
+
+        private readonly tagsService:TagsService
     ){}
     
     async createPosts(createPostDTO:POSTDTO){
-        const {id,...postData} = createPostDTO;
+        const {id,tags,...postData} = createPostDTO;
 
         let user = await this.userService.getOneUserById(id);
+        let tagsLists = await this.tagsService.findALlTags(tags);
 
-        if(!user) return ; 
+        if(!user) return ;  
 
                
         let post = this.postRepiository.create({
             ...postData,
-            author:user
+            author:user,
+            tags:tagsLists
         });
          post = await this.postRepiository.save(post);
         
@@ -49,7 +54,7 @@ export class PostService {
         /** we can get nested mtaoptions by adding relations->metaOptions->true */
         const posts = await this.postRepiository.find(
             // {relations:{metaOptions:true}}
-            {relations:{author:true}}
+            {relations:{author:true,tags:true}}
             )
             ;
         return posts;

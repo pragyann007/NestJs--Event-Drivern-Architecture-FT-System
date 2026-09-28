@@ -1,9 +1,10 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { MetaOptionsDTO } from "../meta-options/dto/metaOptions.dto";
 import { Status } from "./types/PostStatus.enum";
 import { PostType } from "./types/PostType.enum";
 import { MetaOption } from "src/meta-options/meta-option.entity";
 import { User } from "src/users/user.entity";
+import { Tag } from "src/tags/tag.entity";
 
 @Entity()
 export class Post {
@@ -54,12 +55,10 @@ export class Post {
         nullable:false,
     })
     publishOn:Date;
-    @Column({
-        type:"varchar",
-        array:true,
-        nullable:false,
-    })
-    tags:string[];
+    
+    @ManyToMany(()=>Tag)
+    @JoinTable()
+    tags:Tag[];
    
     @OneToOne(()=>MetaOption,(metaOptions)=>metaOptions.post,{
         cascade:true,

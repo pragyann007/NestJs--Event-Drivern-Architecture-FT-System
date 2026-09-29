@@ -22,6 +22,8 @@ import { MetaOptionsModule } from './meta-options/meta-options.module';
 import { Post } from './posts/post.entity';
 import { Tag } from './tags/tag.entity';
 import { MetaOption } from './meta-options/meta-option.entity';
+import { appConfig } from './config/app.config';
+import { config } from 'process';
 const ENV = process.env.NODE_ENV;
 console.log(ENV?ENV:"production");
 @Module({
@@ -32,7 +34,8 @@ console.log(ENV?ENV:"production");
     }),
     ConfigModule.forRoot({
       isGlobal:true,
-      envFilePath:!ENV?".env":`.env.${ENV}`
+      envFilePath:!ENV?".env":`.env.${ENV}`,
+      load:[appConfig]
     }),
     BullModule.forRootAsync(
       {
@@ -63,18 +66,22 @@ console.log(ENV?ENV:"production");
     UsersModule,
     PostsModule,
     TypeOrmModule.forRootAsync({
-      useFactory:()=>({
+      imports:[ConfigModule],
+      inject:[ConfigService],
+      useFactory:(configService:ConfigService)=>({
         type:"postgres",
         // entities:[User,Post,Tag,MetaOption],
-        autoLoadEntities:true,
-        synchronize:true,
-        port:5432,
-        username:"postgres",
-        password:"password",
-        database:"mydb",
-        host:"localhost"
+        autoLoadEntities:configService.get("database.autoLoadEntities"),
+        synchronize:configService.get("database.synchronise"),
+        port:configService.get("database.port"),
+        username:configService.get("database.username"),
+        password:configService.getOrThrow("database.password"),
+        database:configService.get("database.name"),
+        host:configService.get("database.host")
       
       })
+      
+   
     }
     ),
     TagsModule,

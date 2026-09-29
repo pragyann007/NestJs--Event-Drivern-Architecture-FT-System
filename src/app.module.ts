@@ -22,8 +22,9 @@ import { MetaOptionsModule } from './meta-options/meta-options.module';
 import { Post } from './posts/post.entity';
 import { Tag } from './tags/tag.entity';
 import { MetaOption } from './meta-options/meta-option.entity';
-import { appConfig } from './config/app.config';
 import { config } from 'process';
+import appConfig from './config/app.config';
+import dbConfig from './config/db.config';
 const ENV = process.env.NODE_ENV;
 console.log(ENV?ENV:"production");
 @Module({
@@ -35,7 +36,7 @@ console.log(ENV?ENV:"production");
     ConfigModule.forRoot({
       isGlobal:true,
       envFilePath:!ENV?".env":`.env.${ENV}`,
-      load:[appConfig]
+      load:[appConfig,dbConfig]
     }),
     BullModule.forRootAsync(
       {

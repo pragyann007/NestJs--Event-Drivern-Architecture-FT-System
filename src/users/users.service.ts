@@ -5,6 +5,7 @@ import { User } from './user.entity';
 import { Repository } from 'typeorm';
 import { UserDTO } from './dtos/user.dto';
 import { create } from 'domain';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 /**
@@ -14,6 +15,7 @@ export class UsersService {
     /** 
      * This is the constructor that handles circular dependcy and injetc the postService */
     constructor(
+        private readonly configServie:ConfigService,
         @Inject(forwardRef(()=>PostService))
         private readonly postService:PostService,
 
@@ -45,7 +47,10 @@ export class UsersService {
     }
 
     async getALlUsers(){
-        return await this.UserRepiository.find()
+        const hi = this.configServie.get<string>("HI");
+        const env = this.configServie.get<string>("NODE_ENV");
+        const users =  await this.UserRepiository.find();
+        return {users,envRes:{msg:hi,env}}
     }
     /**
      * This method returns the total post  count of user created by this user of userId

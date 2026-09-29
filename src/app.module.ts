@@ -22,13 +22,18 @@ import { MetaOptionsModule } from './meta-options/meta-options.module';
 import { Post } from './posts/post.entity';
 import { Tag } from './tags/tag.entity';
 import { MetaOption } from './meta-options/meta-option.entity';
+const ENV = process.env.NODE_ENV;
+console.log(ENV?ENV:"production");
 @Module({
   imports: [
     EventEmitterModule.forRoot({
       wildcard:true,
       delimiter:"."
     }),
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      isGlobal:true,
+      envFilePath:!ENV?".env":`.env.${ENV}`
+    }),
     BullModule.forRootAsync(
       {
         useFactory:async()=>{

@@ -2,7 +2,7 @@ import { Injectable ,Inject,forwardRef} from '@nestjs/common';
 import { DuplicateDataSourceException, InjectRepository } from '@nestjs/typeorm';
 import { PostService } from 'src/posts/providers/post.service';
 import { User } from './user.entity';
-import { Repository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import { UserDTO } from './dtos/user.dto';
 import { create } from 'domain';
 import { ConfigService } from '@nestjs/config';
@@ -20,7 +20,9 @@ export class UsersService {
         private readonly postService:PostService,
 
         @InjectRepository(User)
-        private UserRepiository:Repository<User>
+        private UserRepiository:Repository<User>,
+
+        private readonly dataSource:DataSource
     ){}
 
     /**This method will take the users details in request and creates db entires. */
@@ -59,5 +61,34 @@ export class UsersService {
         const name = this.postService.getPostName()
 
         return {postId,name:name,likes:19000,comments:8999,views:1000000}
+    }
+
+    async createManyUsers(usersDto:UserDTO[]){
+        const queryPlanner =  this.dataSource.createQueryRunner();
+        let users:User[]=[] ;
+
+        await queryPlanner.connect();
+
+        await queryPlanner.startTransaction();
+
+        try {
+            
+                let userInstance =  queryPlanner.manager.create(User,usersDto);
+                let newUser =await  queryPlanner.manager.save(userInstance);
+               
+            await queryPlanner.commitTransaction();
+            users=[...newUser];
+            
+            
+        } catch (error) {
+            await queryPlanner.rollbackTransaction();
+            
+        }
+        finally{
+            await queryPlanner.release()
+
+        }
+
+
     }
 }

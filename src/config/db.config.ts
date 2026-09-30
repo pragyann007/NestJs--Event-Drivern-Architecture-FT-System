@@ -1,5 +1,4 @@
 import { registerAs } from "@nestjs/config";
-import { deflate } from "zlib";
 
 export default registerAs("database",()=>(
     {

@@ -187,7 +187,23 @@
                         <ul class="index-list">
                             <li>
                                 <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#createPosts" >createPosts</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#deletePost" >deletePost</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                    <span class="modifier">Async</span>
                                 <a href="#getAllPosts" >getAllPosts</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getOnePost" >getOnePost</a>
                             </li>
                             <li>
                                 <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
@@ -195,6 +211,7 @@
                             </li>
                             <li>
                                 <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                    <span class="modifier">Async</span>
                                 <a href="#getPostofUser" >getPostofUser</a>
                             </li>
                         </ul>
@@ -215,12 +232,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(userService: <a href="../injectables/UsersService.html" target="_self">UsersService</a>)</code>
+<code>constructor(userService: <a href="../injectables/UsersService.html" target="_self">UsersService</a>, postRepiository: <a href="../entitys/Post.html" target="_self">Repository&lt;Post&gt;</a>, metaOptionRepisitory: <a href="../entitys/MetaOption.html" target="_self">Repository&lt;MetaOption&gt;</a>, tagsService: <a href="../injectables/TagsService.html" target="_self">TagsService</a>, paginationService: <a href="../injectables/PaginationProvider.html" target="_self">PaginationProvider</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/posts/providers/post.service.ts:5</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/posts/providers/post.service.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -249,6 +266,54 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>postRepiository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../entitys/Post.html" target="_self" >Repository&lt;Post&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>metaOptionRepisitory</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../entitys/MetaOption.html" target="_self" >Repository&lt;MetaOption&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>tagsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TagsService.html" target="_self" >TagsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>paginationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PaginationProvider.html" target="_self" >PaginationProvider</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -267,8 +332,147 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="createPosts"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>createPosts</b></span>
+                        <a href="#createPosts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createPosts(createPostDTO: <a href="../classes/POSTDTO.html" target="_self">POSTDTO</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="30"
+                                    class="link-to-prism">src/posts/providers/post.service.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createPostDTO</td>
+                                            <td>
+                                                            <code><a href="../classes/POSTDTO.html" target="_self" >POSTDTO</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deletePost"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>deletePost</b></span>
+                        <a href="#deletePost"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deletePost(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="95"
+                                    class="link-to-prism">src/posts/providers/post.service.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getAllPosts"></a>
                     <span class="name">
+                            <span class="modifier">Async</span>
                         <span ><b>getAllPosts</b></span>
                         <a href="#getAllPosts"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -276,15 +480,16 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getAllPosts()</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getAllPosts()</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="11"
-                                    class="link-to-prism">src/posts/providers/post.service.ts:11</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="58"
+                                    class="link-to-prism">src/posts/providers/post.service.ts:58</a></div>
                         </td>
                     </tr>
 
@@ -293,9 +498,78 @@
                 <td class="col-md-4">
 
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                            <b>Returns : </b>    <code>unknown</code>
 
                         </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getOnePost"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getOnePost</b></span>
+                        <a href="#getOnePost"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getOnePost(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="69"
+                                    class="link-to-prism">src/posts/providers/post.service.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -320,8 +594,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="21"
-                                    class="link-to-prism">src/posts/providers/post.service.ts:21</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/posts/providers/post.service.ts:91</a></div>
                         </td>
                     </tr>
 
@@ -343,6 +617,7 @@
                 <td class="col-md-4">
                     <a name="getPostofUser"></a>
                     <span class="name">
+                            <span class="modifier">Async</span>
                         <span ><b>getPostofUser</b></span>
                         <a href="#getPostofUser"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -350,15 +625,16 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getPostofUser(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getPostofUser(getPostDTO: <a href="../classes/GetPostDTO.html" target="_self">GetPostDTO</a>, userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="15"
-                                    class="link-to-prism">src/posts/providers/post.service.ts:15</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">src/posts/providers/post.service.ts:75</a></div>
                         </td>
                     </tr>
 
@@ -379,6 +655,18 @@
                                     </thead>
                                     <tbody>
                                         <tr>
+                                                <td>getPostDTO</td>
+                                            <td>
+                                                            <code><a href="../classes/GetPostDTO.html" target="_self" >GetPostDTO</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
                                                 <td>userId</td>
                                             <td>
                                                             <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
@@ -394,7 +682,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <b>Returns : </b>    <code>unknown</code>
 
                         </div>
                             <div class="io-description">
@@ -413,27 +701,110 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { forwardRef, Inject, Injectable } from &#x27;@nestjs/common&#x27;;
 import { UsersService } from &#x27;src/users/users.service&#x27;;
+import { In, Repository } from &#x27;typeorm&#x27;;
+import { Post } from &#x27;../post.entity&#x27;;
+import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
+import { MetaOption } from &#x27;src/meta-options/meta-option.entity&#x27;;
+import { Meta } from &#x27;@angular/platform-browser&#x27;;
+import { POSTDTO } from &#x27;../dto/post.dto&#x27;;
+import { create } from &#x27;domain&#x27;;
+import { TagsService } from &#x27;src/tags/tags.service&#x27;;
+import { PaginationProvider } from &#x27;src/common/pagination/provider/pagination.provider&#x27;;
+import { PaginationQueryDTO } from &#x27;src/common/pagination/dtos/pagination.dto&#x27;;
+import { GetPostDTO } from &#x27;../dto/getPostBase.dto&#x27;;
 
 @Injectable()
 export class PostService {
     constructor(
         @Inject(forwardRef(()&#x3D;&gt;UsersService))
-        private readonly userService:UsersService
+        private readonly userService:UsersService,
+        @InjectRepository(Post)
+        private readonly postRepiository:Repository&lt;Post&gt;,
+        @InjectRepository(MetaOption)
+        private readonly metaOptionRepisitory:Repository&lt;MetaOption&gt;,
+
+        private readonly tagsService:TagsService,
+
+        private readonly paginationService:PaginationProvider
     ){}
     
-    getAllPosts(){
-        return &quot;ALl post getted &quot;
+    async createPosts(createPostDTO:POSTDTO){
+        const {id,tags,...postData} &#x3D; createPostDTO;
+
+        let user &#x3D; await this.userService.getOneUserById(id);
+        let tagsLists &#x3D; await this.tagsService.findALlTags(tags);
+
+        if(!user) return ;  
+
+               
+        let post &#x3D; this.postRepiository.create({
+            ...postData,
+            author:user,
+            tags:tagsLists
+        });
+         post &#x3D; await this.postRepiository.save(post);
+        
+        
+        
+      
+        return {
+            status:&quot;OK&quot;,
+            statusCode:201,
+            message:&quot;Created..&quot;,
+            data:post
+        }
+
 
     }
-    getPostofUser(userId:string){
-        const user &#x3D; this.userService.getOneUser(userId);
-        return user ; 
+    async getAllPosts(){
+        /** we can get nested mtaoptions by adding relations-&gt;metaOptions-&gt;true */
+        const posts &#x3D; await this.postRepiository.find(
+            // {relations:{metaOptions:true}}
+            {relations:{author:true,tags:true}}
+            )
+            ;
+        return posts;
+
+    }
+
+    async getOnePost(id:string){
+        const posts &#x3D; await this.postRepiository.findOneBy({id}) ;
+        
+
+        return {findPostFromPostsId:posts}
+       }
+    async getPostofUser(getPostDTO:GetPostDTO,userId:string){
+        // const user &#x3D; await this.userService.getOneUserById(userId);
+        // return user ; 
+        // if(!user) return;
+        
+        // const posts &#x3D; await this.postRepiository.findBy({
+        //     author:{
+        //         id:userId
+        //     }
+        // })
+        const posts &#x3D; await this.paginationService.paginate(this.postRepiository,{page:getPostDTO.page,limit:getPostDTO.limit});
+
+        return posts;
 
 
     }
     getPostName(){
         return &quot;I just got macbook at age of mid 18&quot;
     }
+
+    async deletePost(id:string){
+        const post &#x3D; await this.postRepiository.findOneBy({id});
+
+        await this.postRepiository.delete(id);
+        if(!post?.metaOptions?.id){
+            return &quot;No id exists&quot;
+        }
+
+        await this.metaOptionRepisitory.delete(post?.metaOptions?.id);
+        return {status:&quot;OK&quot;,deleted:true,statusCode:200,postId:id,metaOptionsId:post.metaOptions.id}
+    }
+
 }
 </code></pre>
     </div>

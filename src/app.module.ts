@@ -24,6 +24,7 @@ import { Tag } from './tags/tag.entity';
 import { MetaOption } from './meta-options/meta-option.entity';
 import { config } from 'process';
 import { PaginationModule } from './common/pagination/pagination.module';
+import { AuthModule } from './auth/auth.module';
 import appConfig from './config/app.config';
 import dbConfig from './config/db.config';
 const ENV = process.env.NODE_ENV;
@@ -88,7 +89,8 @@ console.log(ENV?ENV:"production");
     ),
     TagsModule,
     MetaOptionsModule,
-    PaginationModule
+    PaginationModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],

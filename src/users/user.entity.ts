@@ -20,11 +20,11 @@ export class User {
     email:string
 
     @Column({
-        type:"varchar",
-        length:30,
-        nullable:false
+        type: "text",
+        nullable: false,
     })
-    password:string
+    password: string;
+    
 
     @Column({
         type:"integer",

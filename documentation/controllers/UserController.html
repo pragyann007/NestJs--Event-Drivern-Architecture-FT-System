@@ -197,6 +197,12 @@
                             <li>
                                 <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
                                     <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getALlUsers" >getALlUsers</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                    <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
@@ -290,12 +296,59 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </div>
                             <div class="io-description">
                                 
                             </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getALlUsers"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>getALlUsers</b></span>
+                        <a href="#getALlUsers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getALlUsers()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get()<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="44"
+                                    class="link-to-prism">src/users/users.controller.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -473,7 +526,7 @@ export class UserController {
     @Post()
     createUser(@Body() userDetails: UserDTO) {
         console.log(userDetails);
-        return &#x60;Hi ${userDetails.name} of ${userDetails.age}&#x60;;
+        return this.userservice.createUser(userDetails)
     }
 
     @ApiProperty({
@@ -494,12 +547,17 @@ export class UserController {
     })
     @Get(&quot;/:id&quot;)
     getOneUser(@Param(&quot;id&quot;,new DefaultValuePipe(&quot;abcpragyan&quot;)) id:string){
-        return this.userservice.getOneUser(id)
+        return this.userservice.getOneUserById(id)
     }
     @Patch()
     updateUser(@Body() userData: Partial&lt;UserDTO&gt;) {
         console.log(userData);
         return &#x60;Hiiii ${userData.name}&#x60;;
+    }
+
+    @Get()
+    async getALlUsers (){
+        return this.userservice.getALlUsers() ; 
     }
 }
 </code></pre>

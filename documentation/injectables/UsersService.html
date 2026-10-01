@@ -187,7 +187,23 @@
                         <ul class="index-list">
                             <li>
                                 <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
-                                <a href="#getOneUser" >getOneUser</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#createManyUsers" >createManyUsers</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#createUser" >createUser</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getALlUsers" >getALlUsers</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getOneUserById" >getOneUserById</a>
                             </li>
                             <li>
                                 <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
@@ -211,12 +227,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(postService: <a href="../injectables/PostService.html" target="_self">PostService</a>)</code>
+<code>constructor(configServie: ConfigService, postService: <a href="../injectables/PostService.html" target="_self">PostService</a>, UserRepiository: <a href="../entitys/User.html" target="_self">Repository&lt;User&gt;</a>, dataSource: DataSource)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/users/users.service.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/users/users.service.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -236,10 +252,46 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
+                                                        <td>configServie</td>
+                                                  
+                                                        <td>
+                                                                    <code>ConfigService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
                                                         <td>postService</td>
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/PostService.html" target="_self" >PostService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>UserRepiository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../entitys/User.html" target="_self" >Repository&lt;User&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dataSource</td>
+                                                  
+                                                        <td>
+                                                                    <code>DataSource</code>
                                                         </td>
                                                   
                                                     <td>
@@ -265,24 +317,205 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getOneUser"></a>
+                    <a name="createManyUsers"></a>
                     <span class="name">
-                        <span ><b>getOneUser</b></span>
-                        <a href="#getOneUser"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Async</span>
+                        <span ><b>createManyUsers</b></span>
+                        <a href="#createManyUsers"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getOneUser(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createManyUsers(usersDto: <a href="../classes/UserDTO.html" target="_self">UserDTO[]</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="16"
-                                    class="link-to-prism">src/users/users.service.ts:16</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="66"
+                                    class="link-to-prism">src/users/users.service.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usersDto</td>
+                                            <td>
+                                                            <code><a href="../classes/UserDTO.html" target="_self" >UserDTO[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createUser"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>createUser</b></span>
+                        <a href="#createUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createUser(createUserDTO: <a href="../classes/UserDTO.html" target="_self">UserDTO</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">src/users/users.service.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>This method will take the users details in request and creates db entires.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createUserDTO</td>
+                                            <td>
+                                                            <code><a href="../classes/UserDTO.html" target="_self" >UserDTO</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getALlUsers"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getALlUsers</b></span>
+                        <a href="#getALlUsers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getALlUsers()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/users/users.service.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getOneUserById"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getOneUserById</b></span>
+                        <a href="#getOneUserById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getOneUserById(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">src/users/users.service.ts:45</a></div>
                         </td>
                     </tr>
 
@@ -320,7 +553,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>    <code>{ id: string; name: string; }</code>
+                            <b>Returns : </b>    <code>unknown</code>
 
                         </div>
                             <div class="io-description">
@@ -350,8 +583,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="22"
-                                    class="link-to-prism">src/users/users.service.ts:22</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/users/users.service.ts:60</a></div>
                         </td>
                     </tr>
 
@@ -407,7 +640,13 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable ,Inject,forwardRef} from &#x27;@nestjs/common&#x27;;
+import { DuplicateDataSourceException, InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
 import { PostService } from &#x27;src/posts/providers/post.service&#x27;;
+import { User } from &#x27;./user.entity&#x27;;
+import { DataSource, Repository } from &#x27;typeorm&#x27;;
+import { UserDTO } from &#x27;./dtos/user.dto&#x27;;
+import { create } from &#x27;domain&#x27;;
+import { ConfigService } from &#x27;@nestjs/config&#x27;;
 
 @Injectable()
 /**
@@ -417,12 +656,44 @@ export class UsersService {
     /** 
      * This is the constructor that handles circular dependcy and injetc the postService */
     constructor(
+        private readonly configServie:ConfigService,
         @Inject(forwardRef(()&#x3D;&gt;PostService))
-        private readonly postService:PostService
+        private readonly postService:PostService,
+
+        @InjectRepository(User)
+        private UserRepiository:Repository&lt;User&gt;,
+
+        private readonly dataSource:DataSource
     ){}
+
+    /**This method will take the users details in request and creates db entires. */
+    async createUser(createUserDTO:UserDTO){
+        const userExists &#x3D; await this.UserRepiository.findOne({
+            where:{
+                email:createUserDTO.email
+            }
+        })
+        if(userExists){
+            throw new DuplicateDataSourceException(&quot;User already exists..&quot;)
+        }
+        let  user &#x3D;  this.UserRepiository.create(createUserDTO);
+        user  &#x3D; await this.UserRepiository.save(user)
+
+        return {status:&quot;OK&quot;,statusCode:201,data:user}
+    }
+
     /**This method gets a user by its Id and returns only 1 user. */
-    getOneUser(userId:string){
-        return {id:userId,name:&quot;Pragyan&quot;}
+    async getOneUserById(userId:string){
+        const user &#x3D; await this.UserRepiository.findOneBy({id:userId});
+        return user ; 
+    
+    }
+
+    async getALlUsers(){
+        const hi &#x3D; this.configServie.get&lt;string&gt;(&quot;HI&quot;);
+        const env &#x3D; this.configServie.get&lt;string&gt;(&quot;NODE_ENV&quot;);
+        const users &#x3D;  await this.UserRepiository.find();
+        return {users,envRes:{msg:hi,env}}
     }
     /**
      * This method returns the total post  count of user created by this user of userId
@@ -431,6 +702,35 @@ export class UsersService {
         const name &#x3D; this.postService.getPostName()
 
         return {postId,name:name,likes:19000,comments:8999,views:1000000}
+    }
+
+    async createManyUsers(usersDto:UserDTO[]){
+        const queryPlanner &#x3D;  this.dataSource.createQueryRunner();
+        let users:User[]&#x3D;[] ;
+
+        await queryPlanner.connect();
+
+        await queryPlanner.startTransaction();
+
+        try {
+            
+                let userInstance &#x3D;  queryPlanner.manager.create(User,usersDto);
+                let newUser &#x3D;await  queryPlanner.manager.save(userInstance);
+               
+            await queryPlanner.commitTransaction();
+            users&#x3D;[...newUser];
+            
+            
+        } catch (error) {
+            await queryPlanner.rollbackTransaction();
+            
+        }
+        finally{
+            await queryPlanner.release()
+
+        }
+
+
     }
 }
 </code></pre>

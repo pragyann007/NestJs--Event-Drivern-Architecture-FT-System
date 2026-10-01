@@ -41,6 +41,13 @@ export class UsersService {
         return {status:"OK",statusCode:201,data:user}
     }
 
+    async checkDuplicateUsers(email:string):Promise<boolean>{
+        const checkUser = await this.UserRepiository.findOneBy({email});
+
+        if(checkUser) return true 
+        else{ return false} 
+
+    }
     /**This method gets a user by its Id and returns only 1 user. */
     async getOneUserById(userId:string){
         const user = await this.UserRepiository.findOneBy({id:userId});

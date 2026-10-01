@@ -1,7 +1,8 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Query } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { POSTDTO } from './dto/post.dto';
 import { PostService } from './providers/post.service';
+import { GetPostDTO } from './dto/getPostBase.dto';
 
 @ApiTags('Posts') // Good practice: groups your endpoints visually in Swagger UI
 @Controller('posts')
@@ -19,11 +20,13 @@ export class PostsController {
 
 
     @Get()
-    getAllPosts(){
+    getAllPosts(@Query() getQueryDTO:GetPostDTO){
+        console.log(getQueryDTO,typeof getQueryDTO);
         return this.postService.getAllPosts();
     }
-    @Get("/:id")
-    getOnePosts(@Param("id") id:string){
+    @Get("{/:id}")
+    getOnePosts(@Param("id") id:string , @Query() getQueryDTO:GetPostDTO){
+        console.log(getQueryDTO,typeof getQueryDTO);
         return this.postService.getPostofUser(id);
     }
 

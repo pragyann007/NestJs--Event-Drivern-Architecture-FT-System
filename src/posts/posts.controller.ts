@@ -27,7 +27,7 @@ export class PostsController {
     @Get("{/:id}")
     getOnePosts(@Param("id") id:string , @Query() getQueryDTO:GetPostDTO){
         console.log(getQueryDTO,typeof getQueryDTO);
-        return this.postService.getPostofUser(id);
+        return this.postService.getPostofUser(getQueryDTO,id);
     }
 
     @Delete("/:id")

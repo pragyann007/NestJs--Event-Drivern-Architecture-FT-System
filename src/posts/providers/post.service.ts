@@ -8,6 +8,9 @@ import { Meta } from '@angular/platform-browser';
 import { POSTDTO } from '../dto/post.dto';
 import { create } from 'domain';
 import { TagsService } from 'src/tags/tags.service';
+import { PaginationProvider } from 'src/common/pagination/provider/pagination.provider';
+import { PaginationQueryDTO } from 'src/common/pagination/dtos/pagination.dto';
+import { GetPostDTO } from '../dto/getPostBase.dto';
 
 @Injectable()
 export class PostService {
@@ -19,7 +22,9 @@ export class PostService {
         @InjectRepository(MetaOption)
         private readonly metaOptionRepisitory:Repository<MetaOption>,
 
-        private readonly tagsService:TagsService
+        private readonly tagsService:TagsService,
+
+        private readonly paginationService:PaginationProvider
     ){}
     
     async createPosts(createPostDTO:POSTDTO){
@@ -67,16 +72,17 @@ export class PostService {
 
         return {findPostFromPostsId:posts}
        }
-    async getPostofUser(userId:string){
+    async getPostofUser(getPostDTO:GetPostDTO,userId:string){
         // const user = await this.userService.getOneUserById(userId);
         // return user ; 
         // if(!user) return;
         
-        const posts = await this.postRepiository.findBy({
-            author:{
-                id:userId
-            }
-        })
+        // const posts = await this.postRepiository.findBy({
+        //     author:{
+        //         id:userId
+        //     }
+        // })
+        const posts = await this.paginationService.paginate(this.postRepiository,{page:getPostDTO.page,limit:getPostDTO.limit});
 
         return posts;
 

@@ -41,11 +41,11 @@ export class UsersService {
         return {status:"OK",statusCode:201,data:user}
     }
 
-    async checkDuplicateUsers(email:string):Promise<boolean>{
+    async checkDuplicateUsers(email:string):Promise<User|null>{
         const checkUser = await this.UserRepiository.findOneBy({email});
 
-        if(checkUser) return true 
-        else{ return false} 
+        if(checkUser) return checkUser 
+        else{ return null} 
 
     }
     /**This method gets a user by its Id and returns only 1 user. */

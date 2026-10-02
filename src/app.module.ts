@@ -27,6 +27,7 @@ import { PaginationModule } from './common/pagination/pagination.module';
 import { AuthModule } from './auth/auth.module';
 import appConfig from './config/app.config';
 import dbConfig from './config/db.config';
+import { JwtModule } from '@nestjs/jwt';
 const ENV = process.env.NODE_ENV;
 console.log(ENV?ENV:"production");
 @Module({
@@ -90,7 +91,21 @@ console.log(ENV?ENV:"production");
     TagsModule,
     MetaOptionsModule,
     PaginationModule,
-    AuthModule
+    AuthModule,
+    JwtModule.register({
+      global:true
+    })
+    // JwtModule.registerAsync({
+    //   imports:[ConfigModule],
+    //   inject:[ConfigService],
+    //   useFactory:async (configService:ConfigService)=>({
+    //     global:true,
+    //     secret:configService.get("app.jwtSecret"),
+
+        
+
+    //   })
+    // })
   ],
   controllers: [AppController],
   providers: [AppService],

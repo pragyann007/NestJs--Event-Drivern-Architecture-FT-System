@@ -1,0 +1,1 @@
+export const AUTH_DECORATOR_KEY="authType"

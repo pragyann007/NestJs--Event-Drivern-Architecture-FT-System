@@ -4,11 +4,14 @@ import { PatchUserDto } from "./dtos/patch-user-dto";
 import { UsersService } from "./users.service";
 import { ApiParam, ApiProperty, ApiResponse } from "@nestjs/swagger"
 import { AuthGuard } from "src/auth/guards/auth/auth.guard";
+import { Authentication } from "src/auth/decorators/auth.decorator";
+import { AuthType } from "src/auth/enums/Auth-Type.enum";
 
 @Controller("users")
 export class UserController {
     constructor(private readonly userservice:UsersService){}
     // Make sure UserDTO is imported and used before PatchUserDto if they are in the same file
+    @Authentication(AuthType.NONE)
     @Post()
     createUser(@Body() userDetails: UserDTO) {
         console.log(userDetails);

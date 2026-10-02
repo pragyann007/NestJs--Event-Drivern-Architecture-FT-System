@@ -1,8 +1,9 @@
-import { Body, Controller, DefaultValuePipe, Get, Param, Patch, Post, Query } from "@nestjs/common";
+import { Body, Controller, DefaultValuePipe, Get, Param, Patch, Post, Query, UseGuards } from "@nestjs/common";
 import { UserDTO } from "./dtos/user.dto";
 import { PatchUserDto } from "./dtos/patch-user-dto";
 import { UsersService } from "./users.service";
 import { ApiParam, ApiProperty, ApiResponse } from "@nestjs/swagger"
+import { AuthGuard } from "src/auth/guards/auth/auth.guard";
 
 @Controller("users")
 export class UserController {
@@ -41,6 +42,7 @@ export class UserController {
     }
 
     @Get()
+    @UseGuards(AuthGuard)
     async getALlUsers (){
         return this.userservice.getALlUsers() ; 
     }

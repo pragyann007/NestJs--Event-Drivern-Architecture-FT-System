@@ -28,6 +28,8 @@ import { AuthModule } from './auth/auth.module';
 import appConfig from './config/app.config';
 import dbConfig from './config/db.config';
 import { JwtModule } from '@nestjs/jwt';
+import { APP_GUARD } from '@nestjs/core';
+import { AuthGuard } from './auth/guards/auth/auth.guard';
 const ENV = process.env.NODE_ENV;
 console.log(ENV?ENV:"production");
 @Module({
@@ -36,11 +38,11 @@ console.log(ENV?ENV:"production");
       wildcard:true,
       delimiter:"."
     }),
-    ConfigModule.forRoot({
-      isGlobal:true,
-      envFilePath:!ENV?".env":`.env.${ENV}`,
-      load:[appConfig,dbConfig]
-    }),
+      ConfigModule.forRoot({
+        isGlobal:true,
+        envFilePath:!ENV?".env":`.env.${ENV}`,
+        load:[appConfig,dbConfig]
+      }),
     BullModule.forRootAsync(
       {
         useFactory:async()=>{
@@ -108,7 +110,10 @@ console.log(ENV?ENV:"production");
     // })
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService,{
+    provide:APP_GUARD,
+    useClass:AuthGuard
+  }],
 })
 export class AppModule {}
 

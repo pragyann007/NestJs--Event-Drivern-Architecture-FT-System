@@ -30,6 +30,7 @@ import dbConfig from './config/db.config';
 import { JwtModule } from '@nestjs/jwt';
 import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './auth/guards/auth/auth.guard';
+import { AuthenticationGuard } from './auth/guards/auth/authentication/authentication.guard';
 const ENV = process.env.NODE_ENV;
 console.log(ENV?ENV:"production");
 @Module({
@@ -112,8 +113,8 @@ console.log(ENV?ENV:"production");
   controllers: [AppController],
   providers: [AppService,{
     provide:APP_GUARD,
-    useClass:AuthGuard
-  }],
+    useClass:AuthenticationGuard
+  },AuthGuard],
 })
 export class AppModule {}
 

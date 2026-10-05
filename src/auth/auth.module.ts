@@ -6,12 +6,15 @@ import { UsersModule } from 'src/users/users.module';
 import { AuthController } from './auth.controller';
 import {JwtModule} from "@nestjs/jwt"
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { JwtTokenProvider } from './provider/jwt-token.provider';
+import { RefreshTokenDTO } from './dto/refres-token.dto';
+import { RefreshTokenProvider } from './provider/refresh-token.provider';
 
 @Module({
   providers: [{
     provide:HashingProvider,
     useClass:BcryptProvider
-  }, AuthService],
+  }, AuthService,JwtTokenProvider,RefreshTokenProvider],
   imports:[UsersModule,ConfigModule,
   //   JwtModule.registerAsync({
   //   inject:[ConfigService],

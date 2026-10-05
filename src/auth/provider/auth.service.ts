@@ -9,6 +9,9 @@ import { JwtService } from '@nestjs/jwt';
 import { match } from 'assert';
 import { decode } from 'punycode';
 import { VerifyDTO} from '../dto/verify.dto';
+import { JwtTokenProvider } from './jwt-token.provider';
+import { RefreshTokenProvider } from './refresh-token.provider';
+import { RefreshTokenDTO } from '../dto/refres-token.dto';
 
 @Injectable()
 export class AuthService{
@@ -16,7 +19,9 @@ export class AuthService{
         private readonly hashProvider:HashingProvider,
         private readonly userService:UsersService,
         private readonly configService:ConfigService,
-        private readonly jwtService:JwtService
+        private readonly jwtService:JwtService,
+        private readonly jwtTokenProvider:JwtTokenProvider,
+        private readonly refreshTokenProvider:RefreshTokenProvider
     ){
 
     }
@@ -42,6 +47,9 @@ export class AuthService{
         
     }
 
+    async refreshToken(refreshTokenDto:RefreshTokenDTO){
+        return this.refreshTokenProvider.refreshToken(refreshTokenDto);
+    }
     async loginUser(userData:LoginDTO){
         const existingUser = await this.userService.checkDuplicateUsers(userData.email);
 
@@ -58,16 +66,20 @@ export class AuthService{
             throw new UnauthorizedException("Invalid credentials.");
         }
 
-        const token = await this.jwtService.signAsync({
-            sub:existingUser.id,
-            email:existingUser.email
-        },{
-            audience:this.configService.get("app.jwtTokenAudience"),
-            secret:this.configService.get("app.jwtSecret")
-        })
-        console.log("token",token)
+        // const token = this.jwtService.sign({
+        //     sub:existingUser.id,
+        //     email:existingUser.email
+        // },{
+        //     audience:this.configService.get("app.jwtTokenAudience"),
+        //     secret:this.configService.get("app.jwtSecret"),
+        //     expiresIn:"1h"
+        // })
+        // console.log("token",token)
+        const tokens= await this.jwtTokenProvider.generateTokens(existingUser);
 
-        return token ; 
+
+
+        return tokens ; 
 
 
 

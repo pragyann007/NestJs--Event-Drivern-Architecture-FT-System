@@ -7,7 +7,7 @@ import { AUTH_DECORATOR_KEY } from 'src/auth/constants/auth.keys';
 
 @Injectable()
 export class AuthenticationGuard implements CanActivate {
-  private static readonly DefaultType=AuthType.NONE;
+  private static readonly DefaultType=AuthType.BEARER;
 
   private readonly AuthenticationStartegyMapper :Record<AuthType,CanActivate| CanActivate[]>;
 

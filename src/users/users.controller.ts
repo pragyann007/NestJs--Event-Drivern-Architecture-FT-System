@@ -34,6 +34,8 @@ export class UserController {
             name:"Pragyan"
         }
     })
+
+    @Authentication(AuthType.NONE)
     @Get("/:id")
     getOneUser(@Param("id",new DefaultValuePipe("abcpragyan")) id:string){
         return this.userservice.getOneUserById(id)

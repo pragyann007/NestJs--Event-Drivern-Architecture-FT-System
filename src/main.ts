@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { Logger, ValidationPipe } from '@nestjs/common';
 import {SwaggerModule,DocumentBuilder } from "@nestjs/swagger"
+import { DataResponseInterceptor } from './common/interceptors/data-response/data-response.interceptor';
 async function bootstrap() {
 
   const logger = new Logger("Bootstrap");
@@ -14,6 +15,7 @@ async function bootstrap() {
       enableImplicitConversion:true
     }
   }))
+  app.useGlobalInterceptors(new DataResponseInterceptor())
 
   const config = new DocumentBuilder().setVersion("1.0.0")
   .setTitle("Event Driven Architecture App").setDescription("This is the nest s backend api that gives the hands on expeience with the how the event driven system works how is the event being emited how persistance works etc etc ...").addServer("http://localhost:3000").setLicense("MIT","http://github.com/pragyann007").build();

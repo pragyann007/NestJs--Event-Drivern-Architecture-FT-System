@@ -31,6 +31,8 @@ import { JwtModule } from '@nestjs/jwt';
 import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './auth/guards/auth/auth.guard';
 import { AuthenticationGuard } from './auth/guards/auth/authentication/authentication.guard';
+import { UplaodsModule } from './uplaods/uplaods.module';
+import { UploadsModule } from './uploads/uploads.module';
 const ENV = process.env.NODE_ENV;
 console.log(ENV?ENV:"production");
 @Module({
@@ -97,7 +99,9 @@ console.log(ENV?ENV:"production");
     AuthModule,
     JwtModule.register({
       global:true
-    })
+    }),
+    UplaodsModule,
+    UploadsModule
     // JwtModule.registerAsync({
     //   imports:[ConfigModule],
     //   inject:[ConfigService],

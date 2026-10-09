@@ -24,7 +24,7 @@ export class Upload{
         type:"enum",
         enum:fileType,
         default:fileType.IMAGE,
-        nullable:false,
+        nullable:true,
         
     })
     type:fileType;

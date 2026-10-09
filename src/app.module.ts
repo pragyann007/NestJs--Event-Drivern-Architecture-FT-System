@@ -35,6 +35,7 @@ import { UplaodsModule } from './uplaods/uplaods.module';
 import { UploadsModule } from './uploads/uploads.module';
 const ENV = process.env.NODE_ENV;
 console.log(ENV?ENV:"production");
+
 @Module({
   imports: [
     EventEmitterModule.forRoot({
